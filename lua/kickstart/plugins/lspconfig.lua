@@ -96,7 +96,8 @@ return {
         map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
         map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-
+        -- Popup Documentation
+        map('K', vim.lsp.buf.hover, 'Hover Documentation')
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client
         ---@param method vim.lsp.protocol.Method

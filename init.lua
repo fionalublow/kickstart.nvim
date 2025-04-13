@@ -46,7 +46,9 @@ What is Kickstart?
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 --  NOTE: set asciicircum with xmodmap for caret key combinations!
-
+-- install jetbrains mono nerd font
+-- java 21 required with ast-grep!
+--
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -180,6 +182,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Settings from primeagen
+--
+-- Relative Line Numbers
+vim.opt.relativenumber = true
+-- Incremental Search
+vim.opt.incsearch = true
+-- keep Cursor centered when moving up down with D and U
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
 -- [[ Configure and install plugins ]]
 --  To check the current status of your plugins, run
 --    :Lazy
@@ -231,6 +243,8 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  --  TODO: undotree seems really nice!
+  --
   -- { import = 'custom.plugins' },
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
